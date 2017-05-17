@@ -3,8 +3,6 @@ server:
   port: 9090
 
 spring:
-  application:
-    name: greeting-Service
   boot:
     admin:
       routes:
