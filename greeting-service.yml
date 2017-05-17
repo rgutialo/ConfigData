@@ -1,0 +1,25 @@
+---
+server:
+  port: 9090
+
+spring:
+  application:
+    name: greeting-Service
+  boot:
+    admin:
+      routes:
+        endpoints:hystrix.stream
+    
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 3
+    metadataMap:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+  client:
+    # Default values comes from org.springframework.cloud.netflix.eurek.EurekaClientConfigBean
+    registryFetchIntervalSeconds: 5
+    instanceInfoReplicationIntervalSeconds: 5
+    initialInstanceInfoReplicationIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    
